@@ -1,0 +1,1545 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+li {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+header,
+section,
+footer {
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+
+/* 반응형 - 브레이크 포인트 (480, 1024, 1024이상) */
+/* 모바일 */
+@media screen and (min-width: 360px) {
+  header {
+    width: 100vw;
+    height: 95px;
+    position: fixed; /*고정위치*/
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.5s;
+  }
+  header .header_wrap {
+    width: 100%;
+    display: flex; /*플렉서블*/
+    flex-flow: row nowrap; /*행기준 정렬, 줄바꿈 금지*/
+    justify-content: space-between; /*일정한 간격*/
+    transition: all 0.5s;
+  }
+  header.active {
+    background-color: blueviolet;
+    box-shadow: 0 0 5px #ccc;
+  }
+  header .header_wrap .logo {
+    width: 35vw;
+    margin-top: 0.8vw;
+    left: 3vw;
+  }
+  header nav {
+    width: 60%;
+    margin-top: 2vw;
+    z-index: 102;
+    display: none;
+  }
+
+  /* 태블릿 모바일 버전 메뉴 */
+  header #navi nav {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 0;
+  }
+  header #navi {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: -100vw;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 2vw;
+    width: 100vw;
+    height: 180vw;
+  }
+  header #navi nav ul {
+    display: flex;
+    flex-flow: column nowrap;
+    /* 열 기준 세로 정렬, 피씨 버전에서 보임 */
+  }
+  header #navi nav ul li a {
+    font-size: 4vw;
+    padding: 2vw;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+  }
+  header #navi nav ul li a.active {
+    color: blueviolet;
+    border-top: 1px solid blueviolet;
+    border-bottom: 1px solid blueviolet;
+  }
+  /* 태블릿 모바일 버전 서브 */
+  header #navi nav .sub {
+    padding: 2vw;
+    display: none;
+  }
+  header #navi nav .sub li a {
+    border-top: 1px solid transparent;
+    font-size: 3.5vw;
+    font-weight: normal;
+    margin-left: 2vw;
+  }
+  header #navi .navi_arrow {
+    width: 5vw;
+    float: right;
+    margin-right: 5vw;
+  }
+  header #navi .navi_arrow a {
+    padding: 3vw;
+  }
+  header #navi .navi_arrow a .fa-arrow-circle-right {
+    color: #333;
+    font-size: 7vw;
+    margin-right: 6vw;
+  }
+  header #navi .navi_arrow a .fa-arrow-circle-right:before {
+    margin-right: 6vw;
+  }
+  header #navi .menu_logo {
+    width: 30vw;
+    margin-top: 2vw;
+    margin-left: 2vw;
+  }
+
+  header .menu_btn {
+    display: block;
+    width: 12vw;
+    padding-right: 1.8vw;
+    margin-right: 4vw;
+  }
+  header .sns {
+    display: none;
+  }
+
+  header .s1 {
+    height: 100vh;
+  }
+  /* 비주얼 슬라이드 */
+  .s1 {
+    position: relative;
+  }
+  .s1 .visual {
+    width: 100%;
+    height: 100vh;
+  }
+  .s1 .visual .swiper-slide {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s1 .visual .v1 {
+    background-image: url(../img/1-1.jpg);
+  }
+  .s1 .visual .v2 {
+    background-image: url(../img/1-2.jpg);
+  }
+  .s1 .visual .v3 {
+    background-image: url(../img/1-3.jpg);
+  }
+  .s1 .visual_txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+  }
+  .s1 .visual_txt h1 {
+    font-size: 5.5vw;
+    text-shadow: 0 0 5px #999;
+  }
+  .s1 .visual_txt p {
+    font-weight: bold;
+    font-size: 3vw;
+    text-shadow: 0 0 5px #999;
+    line-height: 4vw;
+  }
+  .s1 .visual_txt a {
+    color: #fff;
+    font-size: 3vw;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    width: 18vh;
+    margin: 0 auto;
+    margin-top: 2vw;
+    transition: all 0.3s;
+    padding: 1vw 1.5vw 1.2vw;
+  }
+  .s1 .visual_txt a:hover {
+    background-color: blueviolet;
+  }
+  /* swiper-pagination */
+  .s1 .swiper-horizontal > .swiper-pagination {
+    padding-bottom: 34vh;
+  }
+  .s1 .swiper-horizontal > .swiper-pagination span {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    opacity: 1;
+  }
+  .s1 .swiper-horizontal > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #fff;
+  }
+
+  /* s2 */
+  .s2 {
+    position: relative;
+  }
+  .s2 .product_title {
+    position: absolute;
+    top: 5vw;
+    left: 1.5vw;
+    z-index: 5;
+  }
+  .s2 .product_title h1 {
+    font-size: 4vw;
+  }
+  .s2 .product_title p {
+    font-size: 3vw;
+    line-height: 6vw;
+    font-weight: bold;
+  }
+  .s2 .product .swiper-slide {
+    position: relative;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s2 .product .p1 {
+    background-image: url(../img/2-1.jpg);
+  }
+  .s2 .product .p2 {
+    background-image: url(../img/2-2.jpg);
+  }
+  .s2 .product .p3 {
+    background-image: url(../img/2-3.jpg);
+  }
+  .s2 .product .p4 {
+    background-image: url(../img/2-4.jpg);
+  }
+  .s2 .product .p5 {
+    background-image: url(../img/2-5.jpg);
+  }
+  .s2 .product .p6 {
+    background-image: url(../img/2-6.jpg);
+  }
+  .s2 .swiper-button-next {
+    top: auto;
+    bottom: 0;
+    left: 24%;
+    background-color: #fff;
+    padding-right: 0.6vw;
+    padding-left: 0.6vw;
+    z-index: 5;
+    opacity: 1;
+  }
+  .s2 .swiper-button-next:after {
+    font-size: 3vw;
+    color: blueviolet;
+  }
+  .s2 .swiper-button-prev {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    padding-right: 0.6vw;
+    padding-left: 0.6vw;
+    z-index: 7;
+  }
+  .s2 .swiper-button-prev.swiper-button-disabled {
+    opacity: 1;
+  }
+  .s2 .swiper-button-prev:after {
+    font-size: 3vw;
+    color: blueviolet;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination {
+    background-color: #fff;
+    padding: 1.2vw 0.6vw 1.2vw;
+    top: auto;
+    bottom: 0;
+    left: 4%;
+    width: 20%;
+    z-index: 6;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+  }
+  .s2 .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination span {
+    width: 3vw;
+    height: 3vw;
+    background-color: #999;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: blueviolet;
+  }
+  /* 슬라이드 안의 a태그 */
+  .s2 .swiper-slide a {
+    border-radius: 20px;
+    border: 1px solid #333;
+    font-size: 3vw;
+    padding: 0.3vw 2vw 0.5vw;
+    display: inline-block;
+    position: absolute;
+    /* 디스플레이 블럭이면 가로길이가 100%임 */
+    right: 2vw;
+    bottom: 3vw;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .s2 .swiper-slide a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  .center {
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  /* s3 */
+  .s3 {
+    padding: 8vw 0;
+  }
+  .s3 h1 {
+    font-size: 4vw;
+    text-align: center;
+    padding-bottom: 1vw;
+  }
+  .s3 p {
+    font-size: 2.5vw;
+    line-height: 4vw;
+    font-weight: bold;
+    text-align: center;
+  }
+  .s3 .new {
+    width: 100%;
+    margin-top: 3vw;
+  }
+  .s3 .new > div {
+    width: 100%;
+    float: left;
+  }
+  .s3 .new .new_list ul {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    /* 열기준 객체 가운데 정렬 */
+  }
+  .s3 .new .new_list ul li {
+    width: 90vw;
+    height: 40vw;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    /* 자식객체 뉴 텍스트의 포지션 앱솔루트 */
+    margin-bottom: 5vw;
+  }
+  .s3 .new .new_list ul li .new_img {
+    width: 100%;
+    height: 30vw;
+  }
+  .s3 .new .new_list ul li .new_img .new_img2 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 20vw;
+  }
+  .s3 .new .new_list ul li .n1 {
+    background-image: url(../img/3-1.jpg);
+  }
+  .s3 .new .new_list ul li .n2 {
+    background-image: url(../img/3-2.jpg);
+  }
+  .s3 .new .new_list ul li .n3 {
+    background-image: url(../img/3-3.jpg);
+  }
+  /* new_list의 li에 마우스 오버 했을 때 new_img2 확대 */
+  .s3 .new .new_list ul li:hover .new_img2 {
+    transform: scale(1.1, 1.1);
+    transition: all 0.3s;
+  }
+  .s3 .new .new_list ul li .new_txt {
+    width: 100%;
+    height: 18vw;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 2vw 1vw;
+    bottom: -1vw;
+    background-color: #fff;
+    transition: all 0.5s;
+    font-size: 3vw;
+    line-height: 5vw;
+  }
+  .s3 .new .new_list ul li .new_txt span {
+    font-size: 2.5vw;
+    color: #999;
+    font-weight: bold;
+    line-height: 0.8vw;
+  }
+  .s3 .new .new_list ul li .new_txt p {
+    font-size: 2.5vw;
+    color: blueviolet;
+    padding-top: 2.5vw;
+  }
+  .s3 .new .new_list ul li:hover .new_txt {
+    bottom: 5.8vw;
+  }
+  .s3 .new .new_list ul li:hover {
+    box-shadow: 0 0 15px #ccc;
+  }
+  .s3 .new .new_btn {
+    margin-top: 2vw;
+  }
+  .s3 .new .new_btn a {
+    padding: 1vw 1.2vw 1.2vw;
+    border-radius: 30px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    width: 24vw;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .s3 .new .new_btn a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  /* s4 */
+  .s4 .center {
+    width: 98%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .s4 .center > div {
+    width: 60vw;
+    height: 10vw;
+    background-image: url(../img/1-2.jpg);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 1vw 5vw 5vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+  }
+  .s4 .center > div h3 {
+    font-size: 3vw;
+  }
+  .s4 .center > div p {
+    line-height: 4vw;
+    font-size: 3.5vw;
+  }
+  .s4 .center > div a {
+    font-size: 2vw;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
+    padding: 0.5vw 1vw;
+    width: 10vw;
+    text-align: center;
+    margin-top: 2vw;
+  }
+  .s4 .center > div a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  /* footer */
+  footer {
+    background-color: #ccc;
+    margin-top: 3vw;
+  }
+  footer .center {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 2vw;
+  }
+  footer .footer_left img {
+    width: 20vw;
+    padding-bottom: 1vw;
+  }
+  footer .footer_left address {
+    font-style: normal;
+    font-size: 1.5vw;
+    color: #333;
+  }
+  footer .footer_left p {
+    font-size: 1.2vw;
+    color: #333;
+    margin-top: 0.1vw;
+  }
+  footer .footer_right a {
+    font-size: 2vw;
+    background-color: #333;
+    color: #fff;
+    padding: 0.8vw 2vw 1vw;
+    border-radius: 20px;
+    margin-top: 3vw;
+    margin-right: 2vw;
+  }
+  footer .footer_right a:hover {
+    background-color: #999;
+  }
+  .fa-arrow-alt-circle-up {
+    position: fixed;
+    bottom: 2vw;
+    right: 2vw;
+    font-size: 2vw;
+    background-color: #ddd;
+    padding: 1vw;
+    border-radius: 100%;
+    font-size: 4vw;
+    cursor: pointer;
+    z-index: 1;
+  }
+}
+
+/* 태블릿 */
+@media screen and (min-width: 768px) {
+  header .header_wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    /* 행기준 정렬, 줄바꿈 금지 */
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.5s;
+    width: 100%;
+  }
+  header.active {
+    background-color: blueviolet;
+    box-shadow: 0 0 5px #ccc;
+  }
+  header .header_wrap .logo {
+    width: 28vw;
+    margin-top: 0.8vw;
+  }
+  header nav {
+    width: 60%;
+    margin-top: 2vw;
+    z-index: 102;
+    display: none;
+  }
+
+  /* 태블릿 모바일 버전 메뉴 */
+  header #navi nav {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 0;
+  }
+  header #navi {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: -100vw;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 2vw;
+    width: 100vw;
+    height: 120vw;
+  }
+  header #navi nav ul {
+    display: flex;
+    flex-flow: column nowrap;
+    /* 열 기준 세로 정렬, 피씨 버전에서 보임 */
+  }
+  header #navi nav ul li a {
+    font-size: 2vw;
+    padding: 2vw;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+  }
+  header #navi nav ul li a.active {
+    color: blueviolet;
+    border-top: 1px solid blueviolet;
+    border-bottom: 1px solid blueviolet;
+  }
+  /* 태블릿 모바일 버전 서브 */
+  header #navi nav .sub {
+    padding: 2vw;
+    display: none;
+  }
+  header #navi nav .sub li a {
+    border-top: 1px solid transparent;
+    font-size: 2vw;
+    font-weight: normal;
+    margin-left: 2vw;
+  }
+  header #navi .navi_arrow {
+    width: 5vw;
+    float: right;
+    margin-right: 5vw;
+  }
+  header #navi .navi_arrow a {
+    padding: 3vw;
+  }
+  header #navi .navi_arrow a .fa-arrow-circle-right {
+    color: #333;
+    font-size: 6vw;
+  }
+  header #navi .menu_logo {
+    width: 25vw;
+    margin-top: 2vw;
+  }
+
+  header .header_wrap .menu_btn {
+    display: block;
+    width: 8vw;
+    padding-right: 1.2vw;
+    padding-top: 1vw;
+  }
+  header .sns {
+    display: none;
+  }
+
+  header .s1 {
+    height: 100vh;
+  }
+  /* 비주얼 슬라이드 */
+  .s1 {
+    position: relative;
+  }
+  .s1 .visual {
+    width: 100%;
+    height: 100vh;
+  }
+  .s1 .visual .swiper-slide {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s1 .visual .v1 {
+    background-image: url(../img/1-1.jpg);
+  }
+  .s1 .visual .v2 {
+    background-image: url(../img/1-2.jpg);
+  }
+  .s1 .visual .v3 {
+    background-image: url(../img/1-3.jpg);
+  }
+  .s1 .visual_txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+  }
+  .s1 .visual_txt h1 {
+    font-size: 3.8vw;
+    text-shadow: 0 0 5px #999;
+  }
+  .s1 .visual_txt p {
+    font-weight: bold;
+    font-size: 2vw;
+    text-shadow: 0 0 5px #999;
+    line-height: 3vw;
+  }
+  .s1 .visual_txt a {
+    color: #fff;
+    font-size: 1.5vw;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    width: 12vh;
+    margin: 0 auto;
+    margin-top: 2vw;
+    transition: all 0.3s;
+    padding: 1vw 1.5vw 1.2vw;
+  }
+  .s1 .visual_txt a:hover {
+    background-color: blueviolet;
+  }
+  /* swiper-pagination */
+  .s1 .swiper-horizontal > .swiper-pagination {
+    padding-bottom: 34vh;
+  }
+  .s1 .swiper-horizontal > .swiper-pagination span {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    opacity: 1;
+  }
+  .s1 .swiper-horizontal > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #fff;
+  }
+
+  /* s2 */
+  .s2 {
+    position: relative;
+  }
+  .s2 .product_title {
+    position: absolute;
+    top: 5vw;
+    left: 1vw;
+    z-index: 5;
+  }
+  .s2 .product_title h1 {
+    font-size: 2vw;
+  }
+  .s2 .product_title p {
+    font-size: 0.9vw;
+    line-height: 3vw;
+    font-weight: bold;
+  }
+  .s2 .product .swiper-slide {
+    position: relative;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s2 .product .p1 {
+    background-image: url(../img/2-1.jpg);
+  }
+  .s2 .product .p2 {
+    background-image: url(../img/2-2.jpg);
+  }
+  .s2 .product .p3 {
+    background-image: url(../img/2-3.jpg);
+  }
+  .s2 .product .p4 {
+    background-image: url(../img/2-4.jpg);
+  }
+  .s2 .product .p5 {
+    background-image: url(../img/2-5.jpg);
+  }
+  .s2 .product .p6 {
+    background-image: url(../img/2-6.jpg);
+  }
+  .s2 .swiper-button-next {
+    top: auto;
+    bottom: 0;
+    left: 12%;
+    background-color: #fff;
+    padding-right: 0.6vw;
+    padding-left: 0.6vw;
+    z-index: 5;
+    opacity: 1;
+  }
+  .s2 .swiper-button-next:after {
+    font-size: 3vw;
+    color: blueviolet;
+  }
+  .s2 .swiper-button-prev {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    padding-right: 0.6vw;
+    padding-left: 0.6vw;
+    z-index: 7;
+  }
+  .s2 .swiper-button-prev.swiper-button-disabled {
+    opacity: 1;
+  }
+  .s2 .swiper-button-prev:after {
+    font-size: 3vw;
+    color: blueviolet;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination {
+    background-color: #fff;
+    padding: 1.2vw 0.6vw 1.2vw;
+    top: auto;
+    bottom: 0;
+    left: 2.5%;
+    width: 9%;
+    z-index: 6;
+  }
+  .s2 .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination span {
+    width: 12px;
+    height: 12px;
+    background-color: #999;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: blueviolet;
+  }
+  /* 슬라이드 안의 a태그 */
+  .s2 .swiper-slide a {
+    border-radius: 20px;
+    border: 1px solid #333;
+    font-size: 0.7vw;
+    padding: 0.3vw 0.8vw 0.5vw;
+    display: inline-block;
+    position: absolute;
+    /* 디스플레이 블럭이면 가로길이가 100%임 */
+    right: 2vw;
+    bottom: 3vw;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .s2 .swiper-slide a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  .center {
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  /* s3 */
+  .s3 {
+    padding: 8vw 0;
+  }
+  .s3 h1 {
+    font-size: 2.5vw;
+    text-align: center;
+    padding-bottom: 1vw;
+  }
+  .s3 p {
+    font-size: 1.5vw;
+    line-height: 2vw;
+    font-weight: bold;
+    text-align: center;
+  }
+  .s3 .new {
+    width: 100%;
+    margin-top: 3vw;
+  }
+  .s3 .new > div {
+    width: 100%;
+    float: left;
+  }
+  .s3 .new .new_list ul {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+  }
+  .s3 .new .new_list ul li {
+    width: 30vw;
+    height: 25vw;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    /* 자식객체 뉴 텍스트의 포지션 앱솔루트 */
+  }
+  .s3 .new .new_list ul li .new_img {
+    width: 100%;
+    height: 20vw;
+  }
+  .s3 .new .new_list ul li .new_img .new_img2 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 20vw;
+  }
+  .s3 .new .new_list ul li .n1 {
+    background-image: url(../img/3-1.jpg);
+  }
+  .s3 .new .new_list ul li .n2 {
+    background-image: url(../img/3-2.jpg);
+  }
+  .s3 .new .new_list ul li .n3 {
+    background-image: url(../img/3-3.jpg);
+  }
+  /* new_list의 li에 마우스 오버 했을 때 new_img2 확대 */
+  .s3 .new .new_list ul li:hover .new_img2 {
+    transform: scale(1.1, 1.1);
+    transition: all 0.3s;
+  }
+  .s3 .new .new_list ul li .new_txt {
+    width: 100%;
+    height: 12vw;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 3vw 1vw;
+    bottom: -1.8vw;
+    background-color: #fff;
+    transition: all 0.5s;
+    font-size: 1.3vw;
+    line-height: 1.8vw;
+  }
+  .s3 .new .new_list ul li .new_txt span {
+    font-size: 0.8vw;
+    color: #999;
+    font-weight: bold;
+    line-height: 1.8vw;
+  }
+  .s3 .new .new_list ul li .new_txt p {
+    font-size: 1.5vw;
+    color: #999;
+    padding-top: 1.2vw;
+  }
+  .s3 .new .new_list ul li:hover .new_txt {
+    bottom: 2vw;
+  }
+  .s3 .new .new_list ul li:hover {
+    box-shadow: 0 0 15px #ccc;
+  }
+  .s3 .new .new_btn {
+    margin-top: 2vw;
+  }
+  .s3 .new .new_btn a {
+    padding: 1vw 1.2vw 1.2vw;
+    border-radius: 30px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    width: 15vw;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .s3 .new .new_btn a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  /* s4 */
+  .s4 .center {
+    width: 98%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .s4 .center > div {
+    width: 50vw;
+    height: 8vw;
+    background-image: url(../img/1-2.jpg);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 1vw 5vw 5vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+  }
+  .s4 .center > div h3 {
+    font-size: 2vw;
+  }
+  .s4 .center > div p {
+    line-height: 3vw;
+    font-size: 2vw;
+  }
+  .s4 .center > div a {
+    font-size: 0.6vw;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
+    padding: 0.5vw 1vw;
+    margin-top: 0.5vw;
+    width: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+  }
+  .s4 .center > div a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  /* footer */
+  footer {
+    background-color: #ccc;
+    margin-top: 3vw;
+  }
+  footer .center {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 2vw;
+  }
+  footer .footer_left img {
+    width: 20vw;
+    padding-bottom: 1vw;
+  }
+  footer .footer_left address {
+    font-style: normal;
+    font-size: 1.5vw;
+    color: #333;
+  }
+  footer .footer_left p {
+    font-size: 1.2vw;
+    color: #333;
+    margin-top: 0.1vw;
+  }
+  footer .footer_right a {
+    font-size: 2vw;
+    background-color: #333;
+    color: #fff;
+    padding: 0.8vw 2vw 1vw;
+    border-radius: 20px;
+    margin-top: 3vw;
+    margin-right: 2vw;
+  }
+  footer .footer_right a:hover {
+    background-color: #999;
+  }
+  .fa-arrow-alt-circle-up {
+    position: fixed;
+    bottom: 2vw;
+    right: 2vw;
+    font-size: 2vw;
+    background-color: #ddd;
+    padding: 1vw;
+    border-radius: 100%;
+    font-size: 4vw;
+    cursor: pointer;
+    z-index: 1;
+  }
+}
+
+/* PC */
+@media screen and (min-width: 1024px) {
+  header {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.5s;
+  }
+  header .header_wrap {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    transition: all 0.5s;
+  }
+
+  header.active,
+  header .header_wrap.active {
+    background-color: blueviolet;
+    box-shadow: 0 0 5px #ccc;
+  }
+  header .header_wrap .logo {
+    width: 12%;
+    margin-top: 0.8vw;
+  }
+  header nav {
+    width: 60%;
+    margin-top: 2vw;
+    z-index: 102;
+    display: block;
+    /* pc버전에서는 보임 */
+  }
+  /* 태블릿 네비 pc버전에서는 안보임 */
+  header #navi {
+    display: none;
+  }
+  header #navi nav {
+    display: none;
+  }
+
+  header nav > ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  header nav > ul > li {
+    position: relative;
+    /* .sub 자리 찾게함 기준임 */
+  }
+  header nav > ul > li > a {
+    color: blueviolet;
+    font-size: 0.8vw;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 10 10px;
+  }
+  header nav > ul > li:hover > a {
+    color: deeppink;
+  }
+  header .header_wrap.active nav > ul > li:hover > a,
+  header.active nav > ul > li:hover > a {
+    color: deeppink;
+  }
+  header nav > ul > li > a:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: deeppink;
+    margin-top: 2vw;
+    transition: all 0.5s;
+  }
+  header nav > ul > li:hover > a:after {
+    width: 100%;
+  }
+  /* header에 active가 추가 되면 메뉴 색 검정으로 변경 */
+  header .header_wrap.active nav > ul > li > a,
+  header.active nav > ul > li > a {
+    color: #ccc;
+  }
+
+  /* 서브 */
+  header nav .sub {
+    padding: 1vw;
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  header nav .sub li a {
+    font-size: 0.75vw;
+    padding: 0.5vw;
+    text-align: center;
+    letter-spacing: -1px;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    padding-top: 0.5vh;
+  }
+  header nav .sub li a:hover {
+    color: deeppink;
+  }
+  header .sub_bg {
+    position: absolute;
+    top: 101px;
+    width: 100%;
+    height: 27vh;
+    background-color: rgba(57, 20, 117, 0.692);
+    z-index: 101;
+    display: none;
+  }
+
+  /* sns */
+  header .sns {
+    width: 7%;
+    margin-top: 2vw;
+    display: block;
+  }
+  header .sns ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  header .sns ul li {
+    width: 1.5vw;
+    padding-left: 10px;
+  }
+
+  header .header_wrap .menu_btn {
+    display: none;
+  }
+
+  header #navi .navi_arrow {
+    display: none;
+  }
+
+  header .s1 {
+    height: 100vh;
+  }
+  /* 비주얼 슬라이드 */
+  .s1 {
+    position: relative;
+  }
+  .s1 .visual {
+    width: 100%;
+    height: 100vh;
+  }
+  .s1 .visual .swiper-slide {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s1 .visual .v1 {
+    background-image: url(../img/1-1.jpg);
+  }
+  .s1 .visual .v2 {
+    background-image: url(../img/1-2.jpg);
+  }
+  .s1 .visual .v3 {
+    background-image: url(../img/1-3.jpg);
+  }
+  .s1 .visual_txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+  }
+  .s1 .visual_txt h1 {
+    font-size: 2vw;
+    text-shadow: 0 0 5px #999;
+  }
+  .s1 .visual_txt p {
+    font-weight: bold;
+    font-size: 1vw;
+    text-shadow: 0 0 5px #999;
+    line-height: 2vw;
+  }
+  .s1 .visual_txt a {
+    color: #fff;
+    font-size: 0.9vw;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    width: 12vh;
+    margin: 0 auto;
+    margin-top: 2vw;
+    transition: all 0.3s;
+    text-align: center;
+    height: 1vh;
+    padding: 0.5vw 2vw 1.5vw;
+  }
+  .s1 .visual_txt a:hover {
+    background-color: blueviolet;
+  }
+  /* swiper-pagination */
+  .s1 .swiper-horizontal > .swiper-pagination {
+    padding-bottom: 34vh;
+  }
+  .s1 .swiper-horizontal > .swiper-pagination span {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    opacity: 1;
+  }
+  .s1 .swiper-horizontal > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #fff;
+  }
+
+  /* s2 */
+  .s2 {
+    position: relative;
+  }
+  .s2 .product_title {
+    position: absolute;
+    top: 5vw;
+    left: 1vw;
+    z-index: 5;
+  }
+  .s2 .product_title h1 {
+    font-size: 2vw;
+  }
+  .s2 .product_title p {
+    font-size: 0.9vw;
+    line-height: 3vw;
+    font-weight: bold;
+  }
+  .s2 .product .swiper-slide {
+    position: relative;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s2 .product .p1 {
+    background-image: url(../img/2-1.jpg);
+  }
+  .s2 .product .p2 {
+    background-image: url(../img/2-2.jpg);
+  }
+  .s2 .product .p3 {
+    background-image: url(../img/2-3.jpg);
+  }
+  .s2 .product .p4 {
+    background-image: url(../img/2-4.jpg);
+  }
+  .s2 .product .p5 {
+    background-image: url(../img/2-5.jpg);
+  }
+  .s2 .product .p6 {
+    background-image: url(../img/2-6.jpg);
+  }
+  .s2 .swiper-button-next {
+    top: auto;
+    bottom: 0;
+    left: 8.5%;
+    background-color: #fff;
+    padding-right: 0.6vw;
+    padding-left: 0.6vw;
+    z-index: 5;
+    opacity: 1;
+  }
+  .s2 .swiper-button-next:after {
+    font-size: 2vw;
+    color: blueviolet;
+  }
+  .s2 .swiper-button-prev {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    padding-right: 0.6vw;
+    padding-left: 0.6vw;
+    z-index: 7;
+  }
+  .s2 .swiper-button-prev.swiper-button-disabled {
+    opacity: 1;
+  }
+  .s2 .swiper-button-prev:after {
+    font-size: 2vw;
+    color: blueviolet;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination {
+    background-color: #fff;
+    padding: 0.6vw;
+    top: auto;
+    bottom: 0;
+    left: 2.5%;
+    width: 5%;
+    z-index: 6;
+  }
+  .s2 .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination span {
+    width: 8px;
+    height: 8px;
+    background-color: #999;
+  }
+  .s2 .swiper-horizontal > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: blueviolet;
+  }
+  /* 슬라이드 안의 a태그 */
+  .s2 .swiper-slide a {
+    border-radius: 20px;
+    border: 1px solid #333;
+    font-size: 0.7vw;
+    padding: 0.3vw 0.8vw 0.5vw;
+    display: inline-block;
+    position: absolute;
+    /* 디스플레이 블럭이면 가로길이가 100%임 */
+    right: 2vw;
+    bottom: 3vw;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .s2 .swiper-slide a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  .center {
+    width: 1440px;
+    margin: 0 auto;
+  }
+
+  /* s3 */
+  .s3 {
+    padding: 8vw 0;
+  }
+  .s3 h1 {
+    font-size: 2vw;
+  }
+  .s3 p {
+    font-size: 0.9vw;
+    line-height: 2vw;
+    font-weight: bold;
+  }
+  .s3 .new {
+    width: 100%;
+    margin-top: 3vw;
+  }
+  .s3 .new > div {
+    width: 100%;
+    float: left;
+  }
+  .s3 .new .new_list ul {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+  }
+  .s3 .new .new_list ul li {
+    width: 24vw;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    /* 자식객체 뉴 텍스트의 포지션 앱솔루트 */
+  }
+  .s3 .new .new_list ul li .new_img {
+    width: 100%;
+    height: 20vw;
+  }
+  .s3 .new .new_list ul li .new_img .new_img2 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 15vw;
+  }
+  .s3 .new .new_list ul li .n1 {
+    background-image: url(../img/3-1.jpg);
+  }
+  .s3 .new .new_list ul li .n2 {
+    background-image: url(../img/3-2.jpg);
+  }
+  .s3 .new .new_list ul li .n3 {
+    background-image: url(../img/3-3.jpg);
+  }
+  /* new_list의 li에 마우스 오버 했을 때 new_img2 확대 */
+  .s3 .new .new_list ul li:hover .new_img2 {
+    transform: scale(1.1, 1.1);
+    transition: all 0.3s;
+  }
+  .s3 .new .new_list ul li .new_txt {
+    width: 100%;
+    height: 10vw;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 3vw 1vw;
+    bottom: -1vw;
+    background-color: #fff;
+    transition: all 0.5s;
+    font-size: 1vw;
+    line-height: 1.5vw;
+  }
+  .s3 .new .new_list ul li .new_txt span {
+    font-size: 0.8vw;
+    color: #999;
+    font-weight: bold;
+  }
+  .s3 .new .new_list ul li .new_txt p {
+    font-size: 0.8vw;
+    color: #999;
+  }
+  .s3 .new .new_list ul li:hover .new_txt {
+    bottom: 2vw;
+  }
+  .s3 .new .new_list ul li:hover {
+    box-shadow: 0 0 15px #ccc;
+  }
+  .s3 .new .new_btn {
+    margin-top: 2vw;
+  }
+  .s3 .new .new_btn a {
+    padding: 1vw 1.2vw;
+    border-radius: 30px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    width: 10vw;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .s3 .new .new_btn a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  /* s4 */
+  .s4 .center {
+    width: 1440px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .s4 .center > div {
+    width: 30vw;
+    height: 4vw;
+    background-image: url(../img/1-2.jpg);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 1vw 3vw 3vw;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+  .s4 .center > div h3 {
+    font-size: 0.65vw;
+  }
+  .s4 .center > div p {
+    line-height: 1vw;
+    font-size: 1vw;
+  }
+  .s4 .center > div a {
+    font-size: 0.6vw;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
+    padding: 0.5vw 1vw;
+    margin-top: 0.2vw;
+    width: 3vw;
+    text-align: center;
+  }
+  .s4 .center > div a:hover {
+    background-color: blueviolet;
+    color: #fff;
+  }
+
+  /* footer */
+  footer {
+    background-color: #ccc;
+    margin-top: 3vw;
+  }
+  footer .center {
+    display: flex;
+    justify-content: space-between;
+    padding: 5vw 0;
+    flex-flow: row nowrap;
+  }
+  footer .footer_left img {
+    width: 10vw;
+  }
+  footer .footer_left address {
+    font-style: normal;
+    font-size: 0.7vw;
+    color: #333;
+  }
+  footer .footer_left p {
+    font-size: 0.7vw;
+    color: #333;
+    margin-top: 0.1vw;
+  }
+  footer .footer_right a {
+    font-size: 0.7vw;
+    background-color: #333;
+    color: #fff;
+    padding: 0.8vw 2vw 1vw;
+    border-radius: 20px;
+  }
+  footer .footer_right a:hover {
+    background-color: #999;
+  }
+  .fa-arrow-alt-circle-up {
+    position: fixed;
+    bottom: 2vw;
+    right: 2vw;
+    font-size: 2vw;
+    background-color: #ddd;
+    padding: 1vw;
+    border-radius: 100%;
+    font-size: 1.4vw;
+    cursor: pointer;
+    z-index: 1;
+  }
+}
